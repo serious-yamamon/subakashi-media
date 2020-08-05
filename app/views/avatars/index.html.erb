@@ -1,0 +1,18 @@
+<h1>My Images</h1>
+<%= form_for(Image.new, html: {multipart: true, class: "dropzone"}) do |f|  %>
+  <div class="fallback">
+    <%= f.file_field :file_name, multiple: true %>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    // disable auto discover
+    Dropzone.autoDiscover = false;
+
+    $(".dropzone").dropzone({
+      maxFilesize: 1,
+      addRemoveLinks: true
+    });
+  });
+</script>
