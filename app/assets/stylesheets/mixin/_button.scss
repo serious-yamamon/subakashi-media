@@ -1,0 +1,71 @@
+.btn-round {
+  border-radius: 30px;
+  margin: 5px 10px;
+}
+
+.btn-outline-default {
+  padding: 2px 6px;
+  border-color: #FF7A88;
+  color: #ff4f5f;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.btn-outline-default:hover {
+  color: #FF7A88;
+  background-color: #ffeeee;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  &:hover {
+    background-color: #0275d8;
+    border-color: #0275d8;
+  }
+}
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  &:hover {
+    background-color: #d9534f;
+    border-color: #d9534f;
+  }
+}
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  &:hover {
+    color: #fff;
+    background-color: #565d63;
+    border-color: #565d63;
+  }
+}
+
+.icon {
+  &-sns {
+    text-decoration: none;
+  }
+  &-instagram {
+    color: #ff0f7f;
+    &:hover {
+      text-decoration: none;
+      color: #ff66ad;
+    }
+  }
+  &-github {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: #777;
+    }
+  }
+  &-twitter {
+    color: #20c3ff;
+    &:hover {
+      text-decoration: none;
+      color: #5cd3ff;
+    }
+  }
+}

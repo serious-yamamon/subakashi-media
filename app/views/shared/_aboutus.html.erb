@@ -1,0 +1,64 @@
+<div class="sub-wrapper">
+  <div class="container-fluid sub-container">
+    <div class="row sub">
+      <div class="col-md-8 col-xs-12 profile">
+        <h2 class="profile-title">スバ賢編集部</h2>
+          <div class="profile-info--link">
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
+              <%= icon("fab", "twitter") %>
+              <% end %>
+              <%= link_to "#", {class: "profile-info--sns icon-sns icon-youtube", target: "_blank"} do %>
+              <%= icon("fab", "youtube") %>
+              <% end %>
+            </div>
+
+
+
+
+        <div class="col-md-5 col-sm-5 col-xs-5 profile-image">
+          <%= image_tag '', class: "profile-image--item" %>
+        </div>
+        <div class="col-md-7 col-sm-7 col-xs-7 profile-info">
+          <p class="profile-info--name">やまもん</p>
+          <div class="profile-info--link">
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
+              <%= icon("fab", "twitter") %>
+            <% end %>
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-instagram", target: "_blank"} do %>
+            <%= icon("fab", "instagram") %>
+            <% end %>
+          </div>
+          <div class="profile-info--description">
+            <p>私立開成高校卒．東京大学大学院新領域創生科学研究科在学．</p>
+            <p>知識検定1級．情報・知識のつながりを意識した授業展開が得意．</p>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-sm-5 col-xs-5 profile-image">
+          <%= image_tag '', class: "profile-image--item" %>
+        </div>
+        <div class="col-md-7 col-sm-7 col-xs-7 profile-info">
+          <p class="profile-info--name">こーしろー｜迂闊</p>
+          <div class="profile-info--link">
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
+            <%= icon("fab", "twitter") %>
+            <% end %>
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-instagram", target: "_blank"} do %>
+            <%= icon("fab", "instagram") %>
+            <% end %>
+            <%= link_to "#", {class: "profile-info--sns icon-sns icon-youtube", target: "_blank"} do %>
+            <%= icon("fab", "youtube") %>
+            <% end %>
+          </div>
+          <div class="profile-info--description">
+            <p>都立国立高校卒．東京大学工学部卒．</p>
+            <p>知識検定1級．</p>
+          </div>
+        </div>
+
+        <%= link_to "もっと詳しく", about_index_path, class: "btn btn-outline-default btn-round" %>
+      </div>
+
+    </div>
+  </div>
+</div>

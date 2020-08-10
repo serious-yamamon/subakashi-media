@@ -1,0 +1,113 @@
+<script>
+  $(function() {
+    $("html").addClass("admin-wrap");
+    $("body").addClass("admin-wrap");
+    $(".wrap").addClass("admin-wrap");
+  })
+</script>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
+
+  <!-- Codemirror and marked dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/markdown/markdown.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/addon/mode/overlay.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/xml/xml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/gfm/gfm.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js'></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- HTML editor CSS and JavaScript -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/components/htmleditor.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/components/htmleditor.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<div class="admin">
+  <%= render 'shared/admin_side' %>
+  <div class="admin-main">
+    <div class="admin-main--header">
+      <% if current_page?(action: :new) %>
+        <h2>Create Post</h2>
+      <% elsif current_page?(action: :edit) %>
+        <h2>Edit Post</h2>
+      <% end %>
+    </div>
+    <div class="admin-main--body">
+      <%= form_for [:admin, @post], html: { multipart: true } do |f| %>
+        <div class="row new-post-form">
+          <div class="col-md-6">
+            <%= f.text_field :title, class: "form-control form-control-lg", placeholder: "Title", required: 'true' %>
+          </div>
+          <div class="col-md-2">
+            <% category_options = Category.order(:id).map { |c| [c.name, c.id] } %>
+            <%= f.select :category_id, category_options, {prompt:"Category"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", placeholder: "Tags (separated by commas)", required: 'true' %>
+          </div>
+        </div>
+        <div class="row new-post-form_confirm">
+          <div class="col-md-4 new-post-form_confirm__description">
+            <%= f.text_field :description, class: "form-control", placeholder: "post's description", required: 'true' %>
+          </div>
+          <div class="col-md-1 fa-box">
+            <i class="fas fa-cloud-upload-alt" datatoggle="modal" data-target="#imageUpload") ></i>
+          </div>
+          <div class="col-md-1 fa-box">
+            <%= f.label :image, class:"new-post-form_confirm__label" do %>
+              <%= f.file_field :image, style: "display:none;" %>
+              <% if @post.image? %>
+                <%= image_tag @post.image.url(:thumb_mini), class:"new-post-form_confirm__image" %>
+              <% else %>
+                <%= icon("far", "image") %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-3 col-sm-3 new-post-form_confirm__slug">
+            <%= f.text_field :slug, class: "form-control", placeholder: "set URL posts/xxx", required: 'true' %>
+          </div>
+          <div class="col-md-3 col-sm-3 new-post-form_confirm__button">
+            <div class="new-post-form_confirm__button-published">
+              <%= f.check_box 'published',{}, "Published", "Draft" %>
+                 Publish
+            </div>
+            <div class="new-post-form_confirm__button-favorite">
+              <%= f.check_box 'favorite',{}, "true", "false" %>
+                 Favorite
+            </div>
+            <%= f.submit :Save, class:"btn btn-primary" %>
+          </div>
+        </div>
+        <textarea name="post[text]" data-uk-htmleditor="{markdown:true}"><%= @post.text if @post.text %></textarea>
+
+      <% end %>
+    </div>
+    <!-- imageUploadModal -->
+    <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="upload-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= form_for [:admin, Image.new], html: {class:'dropzone', id:'my-dropzone'} do |f| %>
+              <div class="dz-message needsclick">
+                <h3>ファイルをここにドロップしてください</h3>
+                <strong>アップロードするにはここをクリックしてください</strong>
+              </div>
+              <div class="fallback">
+                <%= f.file_field :image %>
+                <%= f.submit 'Upload Image' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- imageUploadModal -->
+  </div>
+</div>

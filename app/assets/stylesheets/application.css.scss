@@ -17,6 +17,44 @@
 //bootstrap Sass
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "dropzone/dropzone";
+@import "slick-theme";
+@import "slick";
+
+@import "./mixin/typography";
+@import "./mixin/clearfix";
+@import "./mixin/hover_active";
+
+
+// styles
+@import "./mixin/button";
+@import "./modules/navbar";
+@import "./modules/footer";
+@import "./modules/top";
+@import "./modules/admin";
+@import "./modules/user_form";
+@import "./modules/posts";
+@import "./modules/tags";
+@import "./modules/about";
+@import "./modules/error";
+@import "./mixin/blogcard";
+@import "./modules/carousel";
+
+
+
+@font-face {
+ font-family: 'utukushiMincho';
+ src: font-url('UtsukushiFONT') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
+@font-face {
+font-family: 'flopDesign';
+src: font-url('FlopDesignFONT') format('truetype');
+font-weight: normal;
+font-style: normal;
+}

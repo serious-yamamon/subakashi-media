@@ -1,0 +1,347 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@media(min-width: 768px) {
+  .admin-wrap {
+    height: 100%;
+  }
+  .admin {
+    height: 100%;
+    &-side {
+      background-color: white;
+      border-right: 0.5px solid #cdcdcd;
+      height: 100%;
+      overflow-x: hidden;
+      width: 200px;
+      float: left;
+      &--header {
+        padding: 15px 20px;
+        border-bottom: 0.5px solid #cdcdcd;
+        i {
+          width: 22.5px;
+          text-align: center;
+          vertical-align: -5%;
+          font-size: 1.4em;
+        }
+        a {
+          margin-left: 10px;
+          text-decoration: none;
+          color: black;
+          font-size: 20px;
+          font-weight: bold;
+          &:hover {
+            text-decoration: none;
+            color: #707070;
+          }
+        }
+      }
+      &--menu {
+        padding-left: 20px;
+        ul {
+          padding-left: 0;
+          list-style: none;
+        }
+        i {
+          width: 22.5px;
+          text-align: center;
+          vertical-align: -5%;
+          font-size: 1.4em;
+        }
+        a {
+          margin-left: 10px;
+          text-decoration: none;
+          color: black;
+          font-size: 20px;
+          font-weight: bold;
+          &:hover {
+            text-decoration: none;
+            color: #707070;
+          }
+        }
+        &_item {
+          margin-top: 25px;
+          &__sub {
+            margin-top: 10px;
+            margin-left: 25px;
+          }
+        }
+      }
+    }
+    &-main {
+      background-color: white;
+      height: 100%;
+      overflow-x: auto;
+      float: left;
+      width: calc(100% - 200px);
+      &--header {
+        border-bottom: 0.5px solid #cdcdcd;
+        h2 {
+          margin: 15px;
+          line-height: 28px;
+          font-weight: 400;
+          font-size: 24px;
+        }
+      }
+      &--body {
+        margin: 15px;
+        height: calc(100% - 90.5px);
+
+        //admin#index --start
+        .dashboard {
+          margin: 20px;
+          &-item {
+            width: 30%;
+            margin: 40px 10px;
+            box-shadow: 0px 0 2px rgba(0,0,0,0.4);
+            h2 {
+              font-weight: normal;
+              margin: 20px auto;
+              text-align: center;
+            }
+            a {
+              color: #777;
+              text-decoration: none;
+            }
+          }
+        }
+
+        // posts#new --start
+        .new-post-form {
+          margin-bottom: 10px;
+          &_confirm {
+            min-width: 500px;
+            margin-bottom: 10px;
+            &__description {
+              padding-right: 0;
+            }
+            &__label {
+              &:hover {
+                cursor: pointer;
+              }
+            }
+            &__image {
+              width: 100%;
+            }
+            &__slug {
+              padding-right: 0;
+            }
+            &__button {
+              padding-left: 0;
+              padding-right: 0;
+              text-align: center;
+              &-published {
+                display: inline;
+                margin: auto 5px;
+              }
+              &-favorite {
+                display: inline;
+                margin: auto 5px;
+              }
+            }
+            .btn {
+              margin-left: 20px;
+              font-weight: 400;
+            }
+            .fa-box {
+              vertical-align: middle;
+              text-align: center;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .uk-htmleditor {
+          clear: both;
+          &-code {
+            height: calc(100vh - 250px);
+          }
+          &-preview {
+            height: calc(100vh - 250px);
+          }
+          .CodeMirror {
+            height: calc(100vh - 250px) !important;
+          }
+        }
+        .uk-htmleditor-preview {
+          h2 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 26px;
+            font-weight: bold;
+            strong {
+              font-size: 26px;
+            }
+          }
+          h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            strong {
+              font-size: 22px;
+            }
+          }
+          p {
+            font-size: 16px;
+            margin: 0 0 0.85em;
+          }
+          a {
+            font-size: 16px;
+            color: #777;
+            text-decoration: none;
+          }
+          blockquote {
+            strong {
+              font-size: 18px;
+            }
+          }
+          ul {
+            margin-left: 3%;
+            margin-bottom: 15px;
+            list-style: disc;
+            li {
+              font-size: 16px;
+            }
+          }
+          img {
+            margin: 10px;
+          }
+        }
+        // posts#new --end //
+
+        // posts#all,published,drafts --start
+        &_posts {
+          border: 1px solid #cdcdcd;
+          border-radius: 10px;
+          table {
+            height: 100%;
+            tbody {
+              tr {
+                height: calc((100% - 31px) / 10);
+              }
+            }
+          }
+          .post-head {
+            padding: 5px 10px 5px 18px;
+          }
+          .post-data {
+            padding: 10px 10px 10px 20px;
+            vertical-align: middle;
+          }
+          th {
+            font-weight: bold;
+          }
+          button{
+            width: 87.5px;
+            padding: 1px 7px;
+          }
+          td {
+            font-weight: bold;
+            a {
+              padding-left: 15px;
+              color: #ff3d3d;
+            }
+          }
+          .post-item-image {
+            width: 75px;
+          }
+          .post-item:hover {
+            cursor: pointer;
+            background-color: #f9f9f9;
+          }
+          .pagination {
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            a {
+              color: #777;
+            }
+            span {
+              color: #777;
+            }
+            .page {
+              width: 27px;
+              // border: 1px solid #cdcdcd;
+              padding: 3px 6px 3px 8px;
+              margin: 0 1px;
+              a {
+                line-height: 25px;
+              }
+              span {
+                font-size: 15px;
+              }
+            }
+            &-arrow {
+              width: 20px;
+              a {
+                width: 20px;
+                line-height: 20px;
+                font-size: 1.4em;
+              }
+            }
+          }
+        }
+        // posts#all,published,drafts --end//
+
+        // categories#index --start
+        .categories {
+          margin: 20px;
+          .category {
+            width: 30%;
+            margin: 10px;
+            box-shadow: 0px 0 2px rgba(0,0,0,0.4);
+            h2 {
+              font-weight: normal;
+              margin: 20px auto;
+              text-align: center;
+            }
+            a {
+              color: #777;
+              text-decoration: none;
+            }
+          }
+          .category-new {
+            // position: absolute;
+            // bottom: 0;
+            margin: 30px 10px;
+            box-shadow: 0px 0 2px rgba(0,0,0,0.4);
+            &--form {
+              margin-top: 15px;
+              margin-bottom: 15px;
+            }
+            .btn {
+              width: 60px;
+              margin: 15px 0;
+            }
+          }
+        }
+        // categories#index --end//
+      }
+    }
+  }
+}
+
+#imageUpload {
+  .upload-dialog {
+    width: 840px;
+    margin: 50px auto;
+  }
+  .modal-header {
+    .modal-title {
+      text-align: center;
+    }
+  }
+  .modal-body {
+  }
+  .modal-footer {
+    text-align: center;
+    .btn {
+      outline: none;
+      width: 20%;
+      padding: 6px 12px;
+    }
+  }
+}

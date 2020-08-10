@@ -65,5 +65,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem "dropzonejs-rails"
-gem "carrierwave"
+gem 'dropzonejs-rails'
+gem 'redcarpet'
+
+#backend
+gem 'devise'
+gem 'figaro'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'meta-tags'
+gem 'acts-as-taggable-on'
