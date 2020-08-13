@@ -1,3 +1,519 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media(min-width: 768px) {
+  .post-wrapper {
+    border-bottom: 0.5px solid #cdcdcd;
+  }
+  .post {
+    &-date {
+      margin-left: 5px;
+      color: #777;
+    }
+    &-title {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      color: black;
+      font-weight: bold;
+      font-size: 27px;
+    }
+    &-info {
+      @include clearfix();
+      margin-left: 5px;
+      &--category {
+        font-size: 16px;
+        float: left;
+        color: #777;
+        a {
+          font-weight: 500;
+          font-size: 16px;
+          color: #777;
+          @include active_text();
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      &--tags {
+        float: right;
+        margin-right: 30px;
+        .tag {
+          display: inline-block;
+          margin-top: 3px;
+        }
+        a {
+          font-size: 15px;
+          color: #777;
+          padding: 2px 10px;
+          margin: 0 1px;
+          border: 0.5px solid #cdcdcd;
+          border-radius: 3px;
+          display: inline;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    &-text {
+      clear: both;
+      padding: 30px 10px 10px;
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        font-size: 26px;
+        font-weight: bold;
+        border-bottom: 0.5px solid #cdcdcd;
+        strong {
+          font-size: 26px;
+        }
+      }
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        strong {
+          font-size: 22px;
+        }
+      }
+      p {
+        font-size: 16px;
+        margin: 0 0 0.85em;
+        line-height: 2.2em;
+        strong {
+          font-size: 16px;
+        }
+      }
+      a {
+        font-size: 16px;
+        color: #3994ff;
+        text-decoration: none;
+      }
+      blockquote {
+        strong {
+          font-size: 18px;
+        }
+      }
+      ul {
+        margin-left: 3%;
+        margin-bottom: 15px;
+        li {
+          font-size: 16px;
+          line-height: 1.7em;
+        }
+      }
+      img {
+        margin: 10px;
+        width: 100%;
+      }
+      .vertically {
+        img {
+          width: 30%;
+        }
+      }
+    }
+    &-sns {
+      margin: 10px 10px 30px 10px;
+      iframe {
+        vertical-align: middle;
+      }
+      .pocket-btn {
+        display: inline-block;
+        margin-left: 10px;
+        iframe {
+          vertical-align: middle;
+          margin-bottom: -2px;
+        }
+      }
+    }
+  }
+  .previous_next {
+    @include clearfix();
+    margin-top: 10px;
+    .next {
+      margin-left: 50px;
+      float: left;
+      color: #999;
+      span {
+        font-size: 2em;
+      }
+      a {
+        font-size: 15px;
+        vertical-align: middle;
+        color: #777;
+        text-decoration: none;
+      }
+    }
+    .previous {
+      margin-right: 50px;
+      float: right;
+      color: #999;
+      span {
+        font-size: 2em;
+      }
+      a {
+        font-size: 15px;
+        vertical-align: middle;
+        color: #777;;
+        text-decoration: none;
+      }
+    }
+  }
+  .similar-posts {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 0.5px solid #cdcdcd;
+    &--title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: black;
+      font-weight: bold;
+    }
+    .similar-post {
+      @include hover();
+      a {
+        outline: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &--image {
+        width: 100%;
+        border-radius: 2px;
+      }
+      &--title {
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 0.85em;
+        color: #777;
+      }
+    }
+  }
+  .sticky {
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+  }
+  .side-bar {
+    margin-top: 50px;
+    margin-left: 10px;
+    clear: both;
+    .side-title {
+      color: black;
+      text-align: center;
+      font-weight: bold;
+      font-size: 27px;
+    }
+    &--posts {
+    }
+    &--post {
+      margin: 20px 0;
+      @include hover();
+      &_index {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: -5px;
+      }
+      &-item {
+        margin-left: 20px;
+        display: flex;
+        &:hover {
+          text-decoration: none;
+        }
+        &--side {
+          width: 41.6666666667%;
+          padding-left: 0;
+          padding-right: 0;
+          &_image {
+            width: 100%;
+            border-radius: 2px;
+          }
+        }
+        &--main {
+          width: 58.3333333333%;
+          padding-left: 10px;
+          a:hover {
+            text-decoration: none;
+          }
+          &_title {
+            font-weight: 600;
+            font-size: 0.85em;
+            color: #777;
+          }
+          &_info {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: 0px) and (max-width: 767px) {
+  .post-wrapper {
+    margin-top: 10px;
+  }
+  .post {
+    &-date {
+      color: #777;
+      margin-left: 5px;
+      // @include clearfix();
+      // &-published {
+      //   margin-right: 20px;
+      //   display: block;
+      //   float: right;
+      // }
+    }
+    &-title {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    &-info {
+      @include clearfix();
+      margin-left: 5px;
+      &--category {
+        font-size: 14px;
+        float: left;
+        color: #777;
+        a {
+          font-weight: 500;
+          font-size: 14px;
+          color: #777;
+          @include active_text();
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      &--tags {
+        float: right;
+        .tag {
+          display: inline-block;
+          margin: 0px;
+        }
+        a {
+          font-size: 12px;
+          color: #777;
+          padding: 2px 10px;
+          margin: 0 1px;
+          border: 0.5px solid #cdcdcd;
+          border-radius: 3px;
+          display: inline;
+          text-decoration: none;
+          @include active_text();
+          &:active {
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    &-text {
+      clear: both;
+      padding: 35px 0px 10px;
+      p {
+        font-size: 15px;
+        line-height: 1.8em;
+        strong {
+          font-size: 15px;
+        }
+      }
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        border-bottom: 0.5px solid #cdcdcd;
+        strong {
+          font-size: 25px;
+        }
+      }
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        strong {
+          font-size: 22px;
+        }
+      }
+      a {
+        font-size: 15px;
+        color: #3994ff;
+        text-decoration: none;
+      }
+      blockquote {
+        strong {
+          font-size: 17px;
+        }
+      }
+      ul {
+        margin-left: 7%;
+        list-style: disc;
+        li {
+          font-size: 15px;
+          line-height: 1.6em;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &-sns {
+      margin: 20px 0;
+      iframe {
+        vertical-align: middle;
+      }
+
+      .pocket-btn {
+        display: inline-block;
+        margin-left: 10px;
+        iframe {
+          vertical-align: middle;
+          margin-bottom: -2px;
+        }
+      }
+    }
+  }
+  .previous_next {
+    @include clearfix();
+    margin-top: 10px;
+    .next {
+      float: left;
+      color: #999;
+      span {
+        font-size: 2em;
+      }
+      a {
+        font-size: 15px;
+        vertical-align: middle;
+        color: #777;
+        text-decoration: none;
+        @include active_text();
+      }
+    }
+    .previous {
+      float: right;
+      color: #999;
+      span {
+        font-size: 2em;
+      }
+      a {
+        font-size: 15px;
+        vertical-align: middle;
+        color: #777;
+        text-decoration: none;
+        @include active_text();
+      }
+    }
+  }
+  .similar-posts {
+    padding: 10px;
+    margin-top: 20px;
+    border-top: 0.5px solid #cdcdcd;
+    border-bottom: 0.5px solid #cdcdcd;
+    &--title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 25px;
+      font-weight: bold;
+      color: black;
+    }
+    .similar-post {
+      padding: 0 5px 10px 5px;
+      @include hover();
+      a {
+        outline: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &--image {
+        width: 100%;
+        border-radius: 2px;
+      }
+      &--title {
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 0.85em;
+        color: #777;
+        height: 40px;
+      }
+    }
+  }
+  .bottom-xs {
+    padding: 0;
+  }
+  .side-bar {
+    .side-title {
+      color: black;
+      text-align: center;
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+    &--post {
+      @include hover_mobile();
+      border-bottom: 0.1px solid #cdcdcd;
+      padding: 15px 5px;
+      &-item {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        &:hover {
+          text-decoration: none;
+        }
+        &--side {
+          padding: 0;
+          width: 41.6666666667%;
+          &_image {
+            @include active_image();
+            width: 100%;
+            border-radius: 4px;
+          }
+        }
+        &--main {
+          width: 58.3333333333%;
+          padding-left: 5px;
+          padding-right: 10px;
+          justify-content: space-between;
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+          &_title {
+            margin-top: 5px;
+            margin-left: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: #444;
+          }
+          &_info {
+            width: 100%;
+            margin-left: 5px;
+            justify-content: space-between;
+            display: flex;
+            &__category {
+              font-size: 13px;
+              text-decoration: none;
+              color: #303030;
+              font-weight: bold;
+            }
+            &__date {
+              font-size: 12px;
+              color: #777;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,2 +1,32 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<% set_meta_tags title: "Tags", og: { title: "Tags", type: 'website' }, twitter: { title: "Tags" } %>
+<header>
+  <%= render 'shared/navbar' %>
+  <div class="container-fluid slider-container">
+    <div class="post-slider">
+      <% @slider_posts.each do |slide_post| %>
+      <div class="post-slider--item">
+        <%= link_to slide_post do %>
+          <%= image_tag slide_post.image.url(:thumb), class:"post-slider--item_image" %>
+          <div class="post-slider--item_title">
+            <%= slide_post.title %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+<div class="main-wrapper">
+  <div class="container-fluid main-container">
+    <div class="row posts-wrapper">
+      <div class="tags col-md-6 col-md-offset-3">
+        <h2 class="main-title">Tags</h2>
+        <div class="tag-list">
+          <%= render partial: 'tag', collection: @tags %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/aboutus' %>
+<%= render 'shared/footer' %>

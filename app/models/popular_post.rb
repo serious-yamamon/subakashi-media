@@ -1,0 +1,2 @@
+class PopularPost < ApplicationRecord
+end

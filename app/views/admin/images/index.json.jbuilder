@@ -1,5 +1,5 @@
-json.photos @photos do |photo|
-  json.id    photo.id
-  json.url   photo.image.url
-  json.thumb photo.image.url(:thumb)
+json.images @images do |image|
+  json.id    image.id
+  json.url   image.file_name.url
+  json.thumb image.file_name.url(:thumb)
 end

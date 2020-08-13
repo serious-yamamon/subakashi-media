@@ -58,7 +58,9 @@
             <%= f.text_field :description, class: "form-control", placeholder: "post's description", required: 'true' %>
           </div>
           <div class="col-md-1 fa-box">
-            <i class="fas fa-cloud-upload-alt" datatoggle="modal" data-target="#imageUpload") ></i>
+            <button  data-toggle="modal" data-target="#imageUpload") >
+              <i class="fas fa-cloud-upload-alt"></i>
+            </button>
           </div>
           <div class="col-md-1 fa-box">
             <%= f.label :image, class:"new-post-form_confirm__label" do %>

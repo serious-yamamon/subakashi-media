@@ -13,14 +13,14 @@ $(function() {
   // dropzonejs
   Dropzone.autoDiscover = false;
 
-  function insertImageUrl(photo) {
-    var html = `<div hidden class="btn btn-primary imageurl" data-clipboard-text="${photo.url}">Copy Link</div>`
+  function insertImageUrl(image) {
+    var html = `<div hidden class="btn btn-primary imageurl" data-clipboard-text="${image.url}">Copy Link</div>`
     return html
   }
-  //photos_controller.rbのcreateアクションが呼ばれる
+  //images_controller.rbのcreateアクションが呼ばれる
   $('#my-dropzone').dropzone({
     maxFilesize: 200,// MB
-    paramName: 'photo[image]',
+    paramName: 'image[image]',
     clickable: true,
     success: function(file, response) {
       // file.previewElementでpreview要素のhtmlにアクセス
@@ -38,14 +38,14 @@ $(function() {
       //this equal dropzone
       var me = this;
 
-      //call list function in photos_controller.rb with get method
+      //call list function in images_controller.rb with get method
       $.ajax({
         type: 'GET',
-        url: "/admin/photos",
+        url: "/admin/images",
         dataType: 'json',
         success: function(data){
-          $.each(data.photos, function(key, value) {
-            if (data.photos != undefined && data.photos.length > 0) {
+          $.each(data.images, function(key, value) {
+            if (data.images != undefined && data.images.length > 0) {
               me.emit("addedfile", value);
               me.emit("thumbnail", value, value.thumb);
               me.emit("complete", value);

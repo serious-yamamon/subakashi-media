@@ -17,14 +17,16 @@
 
 <div class="main-wrapper">
   <div class="main-container">
-
-  </div>
-  <div class="sub-container">
-    <div class="pop">
-
+    <div class="posts">
+      <h1 class="main-title">New Posts</h1>
+      <div class="posts-wrapper">
+        <%= render partial: 'shared/post', collection: @posts %>
+      </div>
+      <div class="posts-pagination">
+        <%= paginate @posts %>
+      </div>
     </div>
   </div>
-
 </div>
 
 <%= render 'shared/aboutus' %>

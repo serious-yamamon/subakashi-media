@@ -1,2 +1,2 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% set_meta_tags title: "All Posts", og: { title: "All Posts", type: 'website' }, twitter: { title: "All Posts" } %>
+<%= render 'shared/post_list', main_title: "All Posts" %>

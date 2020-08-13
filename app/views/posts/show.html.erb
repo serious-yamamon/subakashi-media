@@ -1,0 +1,65 @@
+<% set_meta_tags title: @post.title, description: @post.description, keywords: @post.tag_list.join(","), og: { title: @post.title, description: @post.description, type: 'article', image: @post.image.url }, twitter: { title: @post.title, description: @post.description, image: @post.image.url } %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<header>
+  <%= render 'shared/navbar' %>
+</header>
+
+<div class="post-wrapper">
+  <div class="container-fluid main-container">
+    <div class="row">
+      <div class="col-md-9 col-lg-8 col-lg-offset-1">
+        <div class="post">
+          <div class="post-date">
+            <div class="post-date-published">
+              <%= @post.created_at.to_s(:published_on) %>
+            </div>
+          </div>
+          <h1 class="post-title"><%= @post.title %></h1>
+          <div class="post-info" ontouchstart="">
+            <div class="post-info--category">
+              <%= icon("fas", "home") %> <%= link_to "Home", root_path %> / <%= link_to @post.category.name, @post.category %>
+            </div>
+            <div class="post-info--tags">
+              <% @post.tags.each do |tag| %>
+                <div class="tag"><%= link_to "##{tag.name}", "../tags/#{tag.name}" %></div>
+              <% end %>
+            </div>
+          </div>
+          <div class="post-text">
+            <%= md_to_html(@post.text) %>
+          </div>
+          <div class="post-sns">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+            <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+          </div>
+        </div>
+        <div class="previous_next">
+          <div class="next">
+            <span>&lsaquo; <%= next_post(@post.next) %>
+            </span>
+          </div>
+          <div class="previous">
+            <span><%= previous_post(@post.previous) %> &rsaquo;</span>
+          </div>
+        </div>
+        <div class="row similar-posts">
+          <h4 class="similar-posts--title">You Might Like</h4>
+          <%= render partial: 'similar_post', collection: @similar_posts, as: :similar_post %>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-3 sticky bottom-xs">
+        <div class="side-bar">
+          <div class="side-bar--posts">
+            <h2 class="side-title">Popular Posts</h2>
+            <%= render partial: 'popular_post', collection: @popular_posts, as: :popular_post%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/aboutus' %>
+<%= render 'shared/footer' %>

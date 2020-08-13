@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_one :popular_post, dependent: :destroy
+  #has_one :popular_post, dependent: :destroy
 
   acts_as_taggable
 
