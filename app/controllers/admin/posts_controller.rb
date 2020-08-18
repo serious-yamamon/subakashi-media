@@ -1,10 +1,10 @@
 class Admin::PostsController < ApplicationController
   def new
-    @post = current_user.posts.new
+    @post = Post.new
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
     if @post.save
       redirect_to edit_admin_post_path(@post), notice: '記事を投稿しました。'
     else
@@ -40,15 +40,15 @@ class Admin::PostsController < ApplicationController
   end
 
   def all
-    @posts = current_user.posts.includes(:category).default_order.page(params[:page]).per(10)
+    @posts = Post.includes(:category).default_order.page(params[:page]).per(10)
   end
 
   def published
-    @posts = current_user.posts.published.includes(:category).default_order.page(params[:page]).per(10)
+    @posts = Post.published.includes(:category).default_order.page(params[:page]).per(10)
   end
 
   def drafts
-    @posts = current_user.posts.drafts.includes(:category).default_order.page(params[:page]).per(10)
+    @posts = Post.drafts.includes(:category).default_order.page(params[:page]).per(10)
   end
 
   private

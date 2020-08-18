@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :user
   belongs_to :category
+  belongs_to :writer
+  belongs_to :series
 
   #has_one :popular_post, dependent: :destroy
 

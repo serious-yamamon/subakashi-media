@@ -10,27 +10,30 @@
   <%= render 'shared/admin_side' %>
   <div class="admin-main">
     <div class="admin-main--header">
-      <h2>カテゴリー</h2>
-    </div>
-    <div class="admin-main--body">
+      <h2>連載シリーズ</h2>
       <div class="row categories">
-        <% @categories.each do |category|%>
-          <%= link_to "#{category.name}", admin_category_path(category) %>
-          <%= link_to edit_admin_category_path(category.id) do %><%= icon('fas','edit')  %><% end %>
-          <%= link_to admin_category_path(category.id), method: :delete, data: {confirm: "Are You Sure to Delete?"} do %><%= icon('fas','times')  %><% end %>
+        <% @series.each do |series| %>
+          <%= link_to "#{series.name}", admin_series_path(series), method: :get %>
+          <%= series.description%>
+          <%= link_to edit_admin_series_path(series) do %><%= icon('fas','edit')  %><% end %>
+          <%= link_to admin_series_path(series), method: :delete, data: {confirm: "Are You Sure to Delete?"} do %><%= icon('fas','times')  %><% end %>
         <% end %>
       </div>
       <div class="row categories">
         <div class="col-md-6 category-new">
           <div class="form-group">
-            <%= form_for [:admin, @category] do |f| %>
+            <%= form_tag(admin_series_index_path, method: :post) %>
               <div class="col-sm-10 category-new--form">
-                <%= f.text_field :name, class:"col-sm-10 form-control input-lg" %>
+                <p>シリーズ名</p>
+                  <textarea name="name"></textarea>
+              </div>
+              <div class="col-sm-10 category-new--form">
+                <p>詳細説明</p>
+                  <textarea name="description"></textarea>
               </div>
               <%= button_tag type: 'submit', class:"btn btn-primary col-sm-2" do %>
                 <%= icon("far", "plus-square") %>
               <% end %>
-            <% end %>
           </div>
         </div>
       </div>

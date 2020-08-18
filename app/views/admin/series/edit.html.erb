@@ -1,0 +1,35 @@
+<% set_meta_tags noindex: true %>
+<script>
+  $(function() {
+    $("html").addClass("admin-wrap");
+    $("body").addClass("admin-wrap");
+    $(".wrap").addClass("admin-wrap");
+  })
+</script>
+<div class="admin">
+  <%= render 'shared/admin_side' %>
+  <div class="admin-main">
+    <div class="admin-main--header">
+      <h2>シリーズ情報の編集</h2>
+    </div>
+    <div class="admin-main--body">
+      <div class="writer">
+        <%= form_tag(admin_series_path(@series.id), method: :patch ) do %>
+        <div class="form">
+          <div class="form-body">
+            <p>
+              シリーズ名
+            </p>
+            <input name="name" value="<%= @series.name %>">
+            <p>
+              詳細説明
+            </p>
+            <textarea name="description"><%= @series.description %></textarea>
+            <input type="submit" value="保存">
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

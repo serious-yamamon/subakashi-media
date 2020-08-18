@@ -9,4 +9,28 @@ class TopController < ApplicationController
   end
   def link
   end
+
+  def sign_in
+  end
+
+  def login
+    @writer = Writer.find_by(code: params[:code], pass: params[:pass])
+    if @writer
+      session[:writer_id] = @writer.id
+      flash[:notice] = "ログインしました"
+      redirect_to("/")
+    else
+      @error_message = "ユーザー名またはパスワードが間違っています．"
+      @writer_code = params[:code]
+      @pass = params[:pass]
+      render("top/sign_in")
+    end
+  end
+
+  def logout
+    session[:writer_id] = nil
+    flash[:notice] = "ログアウトしました．"
+    redirect_to("/")
+  end
+
 end

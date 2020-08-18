@@ -1,0 +1,64 @@
+<% set_meta_tags noindex: true %>
+<script>
+  $(function() {
+    $("html").addClass("admin-wrap");
+    $("body").addClass("admin-wrap");
+    $(".wrap").addClass("admin-wrap");
+  })
+</script>
+<div class="admin">
+  <%= render 'shared/admin_side' %>
+  <div class="admin-main">
+    <div class="admin-main--header">
+      <h2>ライター情報の編集</h2>
+    </div>
+    <div class="admin-main--body">
+      <div class="writer">
+        <%= form_tag( "/admin/writers/#{@writer.id}/prof_img", {multipart: true}) do %>
+          <input name="image" type="file">
+          <input type="submit" value="投稿">
+        <% end %>
+
+        <%= form_tag(admin_writer_path(@writer.id), method: :patch ) do %>
+        <div class="form">
+          <div class="form-body">
+            <p>
+              ライター名
+            </p>
+            <input name="name" value="<%= @writer.name %>">
+            <p>
+              ライターコード
+            </p>
+            <input name="code" value="<%= @writer.code %>">
+            <p>
+              肩書き
+            </p>
+            <input name="status" value="<%= @writer.status %>">
+            <p>
+              TwitterURL
+            </p>
+            <input name="twitter" value="<%= @writer.twitter %>">
+            <p>
+              InstagramURL
+            </p>
+            <input name="instagram" value="<%= @writer.instagram %>">
+            <p>
+              YoutubeURL
+            </p>
+            <input name="youtube" value="<%= @writer.youtube %>">
+            <p>
+              概略
+            </p>
+            <textarea name="about"><%= @writer.about %></textarea>
+            <p>
+              詳細説明
+            </p>
+            <textarea name="description"><%= @writer.description %></textarea>
+            <input type="submit" value="保存">
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

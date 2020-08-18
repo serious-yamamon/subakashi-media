@@ -11,3 +11,29 @@ User.find_or_create_by(id: 1) do |user|
   user.password = '0353847031'
   user.admin = true
 end
+
+Writer.find_or_create_by(id: 1) do |writer|
+  writer.code = 'yamamoto'
+  writer.pass = '0353847031'
+  writer.status = ''
+  writer.name = 'やまもん'
+  writer.image = ''
+  writer.twitter = ''
+  writer.instagram = ''
+  writer.youtube = ''
+  writer.about = ''
+  writer.description = ''
+end
+
+Writer.find_or_create_by(id: 2) do |writer|
+  writer.code = 'sato'
+  writer.pass = '0353847031'
+  writer.status = ''
+  writer.name = 'こーしろー｜迂闊'
+  writer.image = ''
+  writer.twitter = ''
+  writer.instagram = ''
+  writer.youtube = ''
+  writer.about = ''
+  writer.description = ''
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_015319) do
+ActiveRecord::Schema.define(version: 2020_08_15_154544) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -37,16 +37,25 @@ ActiveRecord::Schema.define(version: 2020_08_13_015319) do
     t.text "text", null: false
     t.text "image"
     t.boolean "published", default: false, null: false
-    t.integer "user_id", default: 1, null: false
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "favorite", default: false
     t.string "description", null: false
     t.string "slug", null: false
+    t.integer "writer_id", default: 1, null: false
+    t.integer "series_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["series_id"], name: "index_posts_on_series_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["writer_id"], name: "index_posts_on_writer_id"
+  end
+
+  create_table "series", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -93,6 +102,21 @@ ActiveRecord::Schema.define(version: 2020_08_13_015319) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "writers", force: :cascade do |t|
+    t.string "code"
+    t.string "pass"
+    t.string "status"
+    t.string "name"
+    t.string "image"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "youtube"
+    t.text "about"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

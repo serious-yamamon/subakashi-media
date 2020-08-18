@@ -1,0 +1,56 @@
+<% set_meta_tags noindex: true %>
+<script>
+  $(function() {
+    $("html").addClass("admin-wrap");
+    $("body").addClass("admin-wrap");
+    $(".wrap").addClass("admin-wrap");
+  })
+</script>
+<div class="admin">
+  <%= render 'shared/admin_side' %>
+  <div class="admin-main">
+    <div class="admin-main--header">
+      <h2>ライター</h2>
+    </div>
+    <div class="admin-main--body">
+      <div class="writer">
+        <% @writers.each do |writer| %>
+          <h3>
+            <%= writer.name %>
+          </h3>
+          <h4>ライターコード</h4>
+          <p>
+            <%= writer.code %>
+          </p>
+          <h4>肩書き</h4>
+          <p>
+            <%= writer.status %>
+          </p>
+          <h4>TwitterURL</h4>
+          <p>
+            <%= writer.twitter %>
+          </p>
+          <h4>InstagramURL</h4>
+          <p>
+            <%= writer.instagram %>
+          </p>
+          <h4>YoutubeURL</h4>
+          <p>
+            <%= writer.youtube %>
+          </p>
+          <h4>概略</h4>
+          <p>
+            <%= writer.about %>
+          </p>
+          <h4>詳細説明</h4>
+          <p>
+            <%= writer.description %>
+          </p>
+          <% if writer.id == @current_writer.id %>
+            <%= link_to "編集", edit_admin_writer_path(writer.id) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

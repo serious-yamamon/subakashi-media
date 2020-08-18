@@ -57,12 +57,12 @@
           <div class="col-md-4 new-post-form_confirm__description">
             <%= f.text_field :description, class: "form-control", placeholder: "post's description", required: 'true' %>
           </div>
-          <div class="col-md-1 fa-box">
+          <div class="col-md-1 ">
             <button  data-toggle="modal" data-target="#imageUpload") >
               <i class="fas fa-cloud-upload-alt"></i>
             </button>
           </div>
-          <div class="col-md-1 fa-box">
+          <div class="col-md-1 ">
             <%= f.label :image, class:"new-post-form_confirm__label" do %>
               <%= f.file_field :image, style: "display:none;" %>
               <% if @post.image? %>

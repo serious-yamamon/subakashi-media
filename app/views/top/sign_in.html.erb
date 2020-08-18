@@ -1,0 +1,33 @@
+<header>
+  <%= render 'shared/navbar' %>
+</header>
+
+<div class="main-wrapper">
+  <div class="main-container">
+    <div class="form users-form">
+      <div class="form-body">
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+        <%= form_tag("/login") do %>
+          <p>
+            writer_code
+          </p>
+          <input name="code" value="<%= @user_name %>">
+          <p>
+            pass
+          </p>
+          <input type="password" name="pass" value="<%= @pass %>">
+          <input type="submit" value="Sign in">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%= render 'shared/footer' %>

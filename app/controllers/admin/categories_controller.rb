@@ -20,7 +20,25 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find_by(id: params[:id])
+    @category.destroy
+    redirect_to admin_categories_path
+  end
+
+  def edit
+    @category = Category.find_by(id: params[:id])
+  end
+
+  def update
+    @category = Category.find_by(id: params[:id])
+    @category.name = params[:name]
+    @category.save
+    redirect_to admin_categories_path
+  end
   private
+
+
 
   def category_params
     params.require(:category).permit(:name)

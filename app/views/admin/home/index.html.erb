@@ -10,26 +10,10 @@
   <%= render 'shared/admin_side' %>
   <div class="admin-main">
     <div class="admin-main--header">
-      <h2>Dashboard</h2>
+      <h2>ダッシュボード</h2>
     </div>
     <div class="admin-main--body">
-      <div class="row dashboard">
-        <div class="col-md-4 dashboard-item">
-          <h2>Posts(<%= @posts.count %>)</h2>
-        </div>
-        <div class="col-md-4 dashboard-item">
-          <h2>Published(<%= @published.count %>)</h2>
-        </div>
-        <div class="col-md-4 dashboard-item">
-          <h2>Drafts(<%= @drafts.count %>)</h2>
-        </div>
-        <div class="col-md-4 dashboard-item">
-          <h2>Categories(<%= @categories.count %>)</h2>
-        </div>
-        <div class="col-md-4 dashboard-item">
-          <h2>Tags(<%= @tags.count %>)</h2>
-        </div>
-      </div>
+      <%= render 'shared/preview_top' %>
     </div>
   </div>
 </div>
